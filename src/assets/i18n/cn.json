@@ -1,0 +1,25 @@
+{
+  "hello": "你好",
+  "bye" : "再见",
+  "test": "这是一个测试",
+  "navitem":{
+    "home": "首页",
+    "cart": "购物车",
+    "orders": "订单",
+    "setting": "设置",
+    "login":"登录",
+    "register":"注册",
+    "logout":"退出"
+  },
+    "notfound":{
+    "button": "返回首页",
+    "title": "Oops, 您正在寻找的页面不存在。"
+  },
+  "account": {
+    "username": "用户名",
+    "password": "密码",
+    "register": "注册",
+    "login": "登录",
+    "resetpw": "忘记密码？"
+  }
+}

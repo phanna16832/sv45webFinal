@@ -1,0 +1,30 @@
+{
+  "hello": "Hello",
+  "bye" : "Goodbye",
+  "test": "This is a test",
+  "navitem":{
+    "home": "Home",
+    "cart": "Cart",
+    "orders": "Orders",
+    "setting": "Setting",
+     "login":"Login",
+    "register":"Sign Up",
+    "logout":"Logout"
+  },
+  "notfound":{
+    "button": "Go Back Home",
+    "title": "Oops, the page you are looking for does not exist."
+  },
+  "account": {
+    "username": "Username",
+    "password": "Password",
+    "register": "Register",
+    "login": "Login",
+    "resetpw": "Reset Password"
+  },
+  "footer":{
+    "p": "This website is create in Purpose of study",
+    "social": "Social Media",
+    "contex":""
+  }
+}

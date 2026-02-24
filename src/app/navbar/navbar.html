@@ -1,0 +1,22 @@
+<nav class="flex items-center border-b border-gray-300 p-2 md:p-3 w-full sticky top-0">
+    <div class="shrink-0">
+        <span class="text-base font-semibold">Logo</span>
+    </div>
+
+    <ul class="flex flex-1 justify-center items-center md:justify-end space-x-4">
+        @for (navitem of navItems; track $index) {
+            <li>
+                <a
+                    [routerLink]="navitem.link"
+                    routerLinkActive="text-white font-bold bg-green-500 p-2 rounded-sm rounded-md md:text-lg"
+                    [routerLinkActiveOptions]="{exact:true}"
+                    class="flex flex-col items-center md:flex-row md:items-center ">
+                    <i class="{{navitem.icon}}"></i>
+                    <span class="text-xs mt-1">
+                        {{navitem.label | translate}}
+                    </span>
+                </a>
+            </li>
+        }
+    </ul>
+</nav>

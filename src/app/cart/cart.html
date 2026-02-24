@@ -1,0 +1,19 @@
+@for (cart of carts; track cart.id) {
+  <div>
+    <h3>Order ID: {{ cart.id }}</h3>
+    <p>Date: {{ cart.date | date }}</p>
+    
+    <ul>
+      @for (p of cart.products; track p.productId) {
+        <li>
+          Product ID: {{ p.productId }} — Quantity: {{ p.quantity }}
+          <img src="{{p.image}}" alt="">
+        </li>
+      } @empty {
+        <li>No products in this cart.</li>
+      }
+    </ul>
+  </div>
+} @empty {
+  <p>No carts found.</p>
+}

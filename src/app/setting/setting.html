@@ -1,0 +1,89 @@
+<div class="min-h-screen p-6 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+  <div class="max-w-md mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 space-y-6">
+    
+    <!-- Header -->
+    <h2 class="text-2xl font-bold text-gray-800 dark:text-white text-center">
+      {{ 'SETTINGS.TITLE' | translate }}
+    </h2>
+
+    <!-- Font Size Selector -->
+    <div class="space-y-2">
+      <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300">
+        {{ 'SETTINGS.FONT_SIZE' | translate }} :
+      </label>
+      <select 
+        [(ngModel)]="fontSize"
+        (ngModelChange)="changeFontSize($event)"
+        class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600">
+        <option [value]="12">12 {{ 'SETTINGS.SMALL' | translate }}</option>
+        <option [value]="14">14 {{ 'SETTINGS.MEDIUM' | translate }}</option>
+        <option [value]="16">16 {{ 'SETTINGS.LARGE' | translate }}</option>
+        <option [value]="18">18 {{ 'SETTINGS.EXTRA_LARGE' | translate }}</option>
+      </select>
+    </div>
+
+    <hr class="border-gray-200 dark:border-gray-600">
+
+    <!-- Alternative: Font Size Buttons -->
+    <div class="space-y-2">
+      <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300">
+        {{ 'SETTINGS.QUICK_SELECT' | translate }} :
+      </label>
+      <div class="flex gap-2">
+        <button 
+          (click)="setSmallFont()"
+          [class.ring-2]="fontSize === 12"
+          class="flex-1 py-2 px-4 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 transition-all">
+          A
+        </button>
+        <button 
+          (click)="setMediumFont()"
+          [class.ring-2]="fontSize === 14"
+          class="flex-1 py-2 px-4 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg text-base font-medium text-gray-700 dark:text-gray-300 transition-all">
+          A
+        </button>
+        <button 
+          (click)="setLargeFont()"
+          [class.ring-2]="fontSize === 16"
+          class="flex-1 py-2 px-4 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg text-lg font-medium text-gray-700 dark:text-gray-300 transition-all">
+          A
+        </button>
+      </div>
+    </div>
+
+    <hr class="border-gray-200 dark:border-gray-600">
+
+    <!-- Language Selector -->
+    <div class="space-y-2">
+      <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300">
+        {{ 'SETTINGS.LANGUAGE' | translate }} :
+      </label>
+      <select 
+        [(ngModel)]="currentLang" 
+        (ngModelChange)="changeLanguage($event)"
+        class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600">
+        <option value="en">🇺🇸 English</option>
+        <option value="cn">🇨🇳 中文</option>
+        <option value="km">🇰🇭 ភាសាខ្មែរ</option>
+      </select>
+    </div>
+
+    <hr class="border-gray-200 dark:border-gray-600">
+
+    <!-- Preview Section -->
+    <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+      <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">
+        {{ 'SETTINGS.PREVIEW' | translate }}
+      </h3>
+      <h1 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+        {{ 'hello' | translate }} world
+      </h1>
+      <p 
+        [style.font-size.px]="fontSize"
+        class="text-gray-600 dark:text-gray-300 transition-all duration-300 leading-relaxed">
+        {{ 'test' | translate }}
+      </p>
+    </div>
+
+  </div>
+</div>
