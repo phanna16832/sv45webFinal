@@ -4,16 +4,25 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SettingService {
-  isDarkMode: boolean = false;
+  isDarkMode: boolean = localStorage.getItem('darkMode') === 'true';
   currentFontSize: number = 14; // Track current size
   smallSize: number = 12;
   mediumSize: number = 14;
   largeSize: number = 16;
+  extraSize : number = 18;
 
-  toggleDarkMode(): void {
-    this.isDarkMode = !this.isDarkMode; // Toggle instead of always true
-    document.body.classList.toggle('dark-mode', this.isDarkMode);
+   constructor() {
+    // Apply on startup
+    document.documentElement.classList.toggle('dark', this.isDarkMode);
   }
+
+toggleDarkMode(): void {
+  this.isDarkMode = !this.isDarkMode;
+
+  document.documentElement.classList.toggle('dark', this.isDarkMode);
+
+  localStorage.setItem('darkMode', this.isDarkMode.toString());
+}
 
   setFontSize(size: number): void {
     this.currentFontSize = size;

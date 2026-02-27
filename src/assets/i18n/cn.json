@@ -2,6 +2,7 @@
   "hello": "你好",
   "bye" : "再见",
   "test": "这是一个测试",
+  "addCart":"加购物车",
   "navitem":{
     "home": "首页",
     "cart": "购物车",
@@ -21,5 +22,18 @@
     "register": "注册",
     "login": "登录",
     "resetpw": "忘记密码？"
+  },
+  "setting":{
+    "fontSize":"字体",
+    "quickSelect":"快选字体",
+     "font":{
+    "small":"最小号",
+    "medium":"小号",
+    "large":"中号",
+    "extra":"最大号"
+  },
+    "lang":"Language",
+    "preview":"Preview"
   }
+
 }

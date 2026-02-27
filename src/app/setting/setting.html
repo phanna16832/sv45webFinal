@@ -6,19 +6,50 @@
       {{ 'SETTINGS.TITLE' | translate }}
     </h2>
 
+    <!-- Dark Mode Toggle Switch -->
+    <div class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">{{ settingService.isDarkMode ? '🌙' : '☀️' }}</span>
+        <div>
+          <p class="font-medium text-gray-700 dark:text-gray-200">
+            {{ 'SETTINGS.DARK_MODE' | translate }}
+          </p>
+          <p class="text-xs text-gray-500 dark:text-gray-400">
+            {{ settingService.isDarkMode ? ('SETTINGS.DARK_ON' | translate) : ('SETTINGS.DARK_OFF' | translate) }}
+          </p>
+        </div>
+      </div>
+      
+      <!-- Switch Button -->
+      <button 
+        (click)="toggleDarkMode()"
+        [class.bg-blue-600]="settingService.isDarkMode"
+        [class.bg-gray-300]="!settingService.isDarkMode"
+        class="relative w-14 h-8 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
+        <span 
+          [class.translate-x-7]="settingService.isDarkMode"
+          [class.translate-x-1]="!settingService.isDarkMode"
+          class="absolute top-1 w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-300 flex items-center justify-center">
+          <span class="text-xs">{{ settingService.isDarkMode ? '🌙' : '☀️' }}</span>
+        </span>
+      </button>
+    </div>
+
+    <hr class="border-gray-200 dark:border-gray-600">
+
     <!-- Font Size Selector -->
     <div class="space-y-2">
       <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300">
-        {{ 'SETTINGS.FONT_SIZE' | translate }} :
+        {{ 'setting.fontSize' | translate }} :
       </label>
       <select 
         [(ngModel)]="fontSize"
         (ngModelChange)="changeFontSize($event)"
         class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600">
-        <option [value]="12">12 {{ 'SETTINGS.SMALL' | translate }}</option>
-        <option [value]="14">14 {{ 'SETTINGS.MEDIUM' | translate }}</option>
-        <option [value]="16">16 {{ 'SETTINGS.LARGE' | translate }}</option>
-        <option [value]="18">18 {{ 'SETTINGS.EXTRA_LARGE' | translate }}</option>
+        <option [value]="12">12 {{ 'setting.font.small' | translate }}</option>
+        <option [value]="14">14 {{ 'setting.font.medium' | translate }}</option>
+        <option [value]="16">16 {{ 'setting.font.large' | translate }}</option>
+        <option [value]="18">18 {{ 'setting.font.extra' | translate }}</option>
       </select>
     </div>
 
@@ -27,24 +58,27 @@
     <!-- Alternative: Font Size Buttons -->
     <div class="space-y-2">
       <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300">
-        {{ 'SETTINGS.QUICK_SELECT' | translate }} :
+        {{ 'setting.quickSelect' | translate }} :
       </label>
       <div class="flex gap-2">
         <button 
           (click)="setSmallFont()"
-          [class.ring-2]="fontSize === 12"
+          [class.ring-2]="fontSize === 14"
+          [class.ring-blue-500]="fontSize === 14"
           class="flex-1 py-2 px-4 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 transition-all">
           A
         </button>
         <button 
           (click)="setMediumFont()"
-          [class.ring-2]="fontSize === 14"
+          [class.ring-2]="fontSize === 16"
+          [class.ring-blue-500]="fontSize === 16"
           class="flex-1 py-2 px-4 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg text-base font-medium text-gray-700 dark:text-gray-300 transition-all">
           A
         </button>
         <button 
           (click)="setLargeFont()"
-          [class.ring-2]="fontSize === 16"
+          [class.ring-2]="fontSize === 18"
+          [class.ring-blue-500]="fontSize === 18"
           class="flex-1 py-2 px-4 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg text-lg font-medium text-gray-700 dark:text-gray-300 transition-all">
           A
         </button>
@@ -56,7 +90,7 @@
     <!-- Language Selector -->
     <div class="space-y-2">
       <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300">
-        {{ 'SETTINGS.LANGUAGE' | translate }} :
+        {{ 'setting.lang' | translate }} :
       </label>
       <select 
         [(ngModel)]="currentLang" 
@@ -73,7 +107,7 @@
     <!-- Preview Section -->
     <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
       <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">
-        {{ 'SETTINGS.PREVIEW' | translate }}
+        {{ 'setting.preview' | translate }}
       </h3>
       <h1 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">
         {{ 'hello' | translate }} world

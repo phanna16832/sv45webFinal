@@ -17,11 +17,6 @@ currentLang: string = localStorage.getItem('appLang') || 'en';
 
   constructor(private translate: TranslateService,
     private settingService : SettingService
-  ) {
-    const savedLang = localStorage.getItem('appLang');
-    if (savedLang) {
-      this.translate.use(savedLang);
-    }
-  }
+  ) {}
 
 }

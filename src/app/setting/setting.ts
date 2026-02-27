@@ -23,29 +23,28 @@ export class Setting implements OnInit {
     // Initialize from service
     this.fontSize = this.settingService.getFontSize();
     
+    // FIXED: Check documentElement, not body
     if (this.settingService.isDarkMode) {
-      document.body.classList.add('dark-mode');
+      document.documentElement.classList.add('dark');
     }
   }
 
-  // Single method to handle font size changes from select
   changeFontSize(size: number | string): void {
     const newSize = Number(size);
     this.settingService.setFontSize(newSize);
     this.fontSize = newSize;
   }
 
-  // Keep these if you want button options too
   setSmallFont(): void {
-    this.changeFontSize(this.settingService.smallSize);
-  }
-
-  setMediumFont(): void {
     this.changeFontSize(this.settingService.mediumSize);
   }
 
-  setLargeFont(): void {
+  setMediumFont(): void {
     this.changeFontSize(this.settingService.largeSize);
+  }
+
+  setLargeFont(): void {
+    this.changeFontSize(this.settingService.extraSize);
   }
 
   toggleDarkMode(): void {

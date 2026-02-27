@@ -1,1 +1,12 @@
 @import "tailwindcss";
+/* Example dark mode styles */
+html.dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* Or if using Tailwind with dark mode class strategy */
+.dark body {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}

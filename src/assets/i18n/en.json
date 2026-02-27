@@ -2,6 +2,7 @@
   "hello": "Hello",
   "bye" : "Goodbye",
   "test": "This is a test",
+  "addCart":"AddCart",
   "navitem":{
     "home": "Home",
     "cart": "Cart",
@@ -21,6 +22,18 @@
     "register": "Register",
     "login": "Login",
     "resetpw": "Reset Password"
+  },
+    "setting":{
+    "fontSize":"Font Size",
+     "font":{
+    "small":"Small",
+    "medium":"Medium",
+    "large":"Large",
+    "extra":"Extra Large"
+  },
+    "quickSelect":"Quick Select On font",
+    "lang":"Language",
+    "preview":"Preview"
   },
   "footer":{
     "p": "This website is create in Purpose of study",

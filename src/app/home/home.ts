@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component,OnInit } from '@angular/core';
 import { ApiService } from '../api-service/api-service';
+import { TranslatePipe } from '@ngx-translate/core';
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
