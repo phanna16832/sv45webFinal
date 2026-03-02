@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { SettingService } from '../services/setting-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-setting',
@@ -16,7 +17,8 @@ export class Setting implements OnInit {
 
   constructor(
     private translate: TranslateService,
-    public settingService: SettingService
+    public settingService: SettingService,
+    public router : Router
   ) {}
 
   ngOnInit(): void {
@@ -55,5 +57,8 @@ export class Setting implements OnInit {
     this.translate.use(lang);
     localStorage.setItem('appLang', lang);
     this.currentLang = lang;
+  }
+  logout (){
+    this.router.navigateByUrl('login')
   }
 }
