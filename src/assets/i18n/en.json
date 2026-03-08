@@ -25,15 +25,26 @@
   },
     "setting":{
     "fontSize":"Font Size",
+    "theme":"Theme",
      "font":{
     "small":"Small",
     "medium":"Medium",
     "large":"Large",
     "extra":"Extra Large"
   },
+  "themeColor":{
+    "light":"Light",
+    "dark" :"Dark"
+  },
     "quickSelect":"Quick Select On font",
-    "lang":"Language",
-    "preview":"Preview"
+    "lang":{
+      "langText" : "Language",
+      "cn": "Chinese",
+      "km" : "Khmer",
+      "en" : "English"
+    },
+    "preview":"Preview",
+    "previewText" : "This is demo text ."
   },
   "footer":{
     "p": "This website is create in Purpose of study",

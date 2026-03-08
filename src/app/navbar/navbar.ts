@@ -26,6 +26,6 @@ export class Navbar {
     { label: 'navitem.setting', link: '/setting', icon:'fa-solid fa-gear' },
     { label: 'navitem.login', link: '/login', icon:'fa-solid fa-right-from-bracket' },
   ];
- 
+
 
 }

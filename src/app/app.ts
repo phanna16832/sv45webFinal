@@ -1,9 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal , inject} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from "./navbar/navbar";
 import { TranslateModule, TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Footer } from "./footer/footer";
-import { SettingService } from './services/setting-service';
+import { SettingService } from './services/setting-services/setting-service';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +14,6 @@ import { SettingService } from './services/setting-service';
 export class App {
   protected readonly title = signal('final');
 currentLang: string = localStorage.getItem('appLang') || 'en';
-
-  constructor(private translate: TranslateService,
-    private settingService : SettingService
-  ) {}
+  settingService = inject(SettingService);
 
 }

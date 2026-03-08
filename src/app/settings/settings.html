@@ -1,0 +1,153 @@
+<div class="min-h-screen bg-gray-50 dark:bg-gray-900 p-6">
+  <div class="max-w-xl mx-auto">
+
+    <!-- Header -->
+    <div class="mb-8">
+      <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
+        {{ 'setting.title' | translate }}
+      </h1>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+        {{ 'setting.subtitle' | translate }}
+      </p>
+    </div>
+
+    <!-- Settings Form Card -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 divide-y divide-gray-100 dark:divide-gray-700">
+
+      <!-- Theme Row -->
+      <div class="p-5 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center">
+            <span class="text-lg">🎨</span>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-gray-800 dark:text-white">{{'setting.theme' | translate}}</p>
+            <p class="text-xs text-gray-400">Light or Dark mode</p>
+          </div>
+        </div>
+        <div class="flex gap-2">
+          <button
+            (click)="changeTheme('light')"
+            [class]="'px-3 py-1.5 rounded-lg text-sm font-medium border transition-all ' +
+              (settingService.theme() === 'light'
+                ? 'bg-lime-500 text-white border-lime-500 shadow-sm'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border-transparent hover:border-gray-300')">
+            ☀️ {{'setting.themeColor.light' | translate}}
+          </button>
+          <button
+            (click)="changeTheme('dark')"
+            [class]="'px-3 py-1.5 rounded-lg text-sm font-medium border transition-all ' +
+              (settingService.theme() === 'dark'
+                ? 'bg-lime-500 text-white border-lime-500 shadow-sm'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border-transparent hover:border-gray-300')">
+            🌙 {{'setting.themeColor.dark' | translate}}
+          </button>
+        </div>
+      </div>
+
+      <!-- Language Row -->
+      <div class="p-5 flex items-center justify-between gap-4">
+        <div class="flex items-center gap-3 shrink-0">
+          <div class="w-9 h-9 rounded-lg bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
+            <span class="text-lg">🌐</span>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-gray-800 dark:text-white">
+              {{ 'setting.lang.langText' | translate }}
+            </p>
+            <p class="text-xs text-gray-400">Choose your language</p>
+          </div>
+        </div>
+        <select
+          (change)="changeLanguage($event)"
+          class="text-sm px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-lime-400 w-36">
+          <option value="en" [selected]="settingService.language() === 'en'">🇺🇸 English</option>
+          <option value="km" [selected]="settingService.language() === 'km'">🇰🇭 ភាសាខ្មែរ</option>
+          <option value="cn" [selected]="settingService.language() === 'cn'">🇨🇳 中文</option>
+        </select>
+      </div>
+
+      <!-- Font Size Row -->
+      <div class="p-5">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 rounded-lg bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
+            <span class="text-lg">🔤</span>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-gray-800 dark:text-white">
+              {{ 'setting.fontSize' | translate }}
+            </p>
+            <p class="text-xs text-gray-400">{{ 'setting.quickSelect' | translate }}</p>
+          </div>
+        </div>
+
+        <!-- Quick Select Buttons -->
+        <div class="flex gap-2 mb-4">
+          <button
+            (click)="changeFontSize('small')"
+            [class]="'flex-1 py-2 rounded-lg border text-sm font-medium transition-all ' +
+              (settingService.fontSize() === 'small'
+                ? 'bg-lime-500 text-white border-lime-500 shadow-sm'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border-transparent hover:border-gray-300')">
+            {{ 'setting.font.small' | translate }}
+          </button>
+          <button
+            (click)="changeFontSize('medium')"
+            [class]="'flex-1 py-2 rounded-lg border text-sm font-medium transition-all ' +
+              (settingService.fontSize() === 'medium'
+                ? 'bg-lime-500 text-white border-lime-500 shadow-sm'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border-transparent hover:border-gray-300')">
+            {{ 'setting.font.medium' | translate }}
+          </button>
+          <button
+            (click)="changeFontSize('large')"
+            [class]="'flex-1 py-2 rounded-lg border text-sm font-medium transition-all ' +
+              (settingService.fontSize() === 'large'
+                ? 'bg-lime-500 text-white border-lime-500 shadow-sm'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border-transparent hover:border-gray-300')">
+            {{ 'setting.font.large' | translate }}
+          </button>
+        </div>
+
+        <!-- Quick Select Dropdown -->
+        <select
+          (change)="onQuickSelect($event)"
+          class="w-full text-sm px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-lime-400">
+          <option value="" disabled [selected]="true">⚡ {{ 'setting.quickSelect' | translate }}</option>
+          <option value="small"  [selected]="settingService.fontSize() === 'small'">🔡 {{ 'setting.font.small' | translate }} — 14px</option>
+          <option value="medium" [selected]="settingService.fontSize() === 'medium'">🔤 {{ 'setting.font.medium' | translate }} — 16px</option>
+          <option value="large"  [selected]="settingService.fontSize() === 'large'">🔠 {{ 'setting.font.large' | translate }} — 18px</option>
+        </select>
+      </div>
+
+    </div>
+
+    <!-- Preview Card -->
+    <div class="mt-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-5">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="text-lg">👁️</span>
+        <h2 class="text-sm font-semibold text-gray-800 dark:text-white">
+          {{ 'setting.preview' | translate }}
+        </h2>
+      </div>
+      <div class="space-y-1">
+        <p class="font-bold text-gray-900 dark:text-white">
+          {{ 'setting.previewText' | translate }}
+        </p>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">
+          AaBbCcDd 1234567890
+        </p>
+<div class="flex gap-2 mt-3">
+  <span class="px-2 py-1 bg-lime-100 dark:bg-lime-900 text-lime-700 dark:text-lime-300 rounded text-xs font-medium">
+    {{ 'setting.font.' + settingService.fontSize() | translate }}
+  </span>
+  <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded text-xs font-medium">
+    {{ 'setting.lang.' + settingService.language() | translate }}
+  </span>
+  <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded text-xs font-medium">
+    {{ 'setting.themeColor.' + settingService.theme() | translate }}
+  </span>
+</div>
+
+  </div>
+</div>

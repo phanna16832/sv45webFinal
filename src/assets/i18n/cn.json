@@ -26,13 +26,24 @@
   "setting": {
     "fontSize": "字体",
     "quickSelect": "快选字体",
+    "theme":"主题",
+     "themeColor":{
+    "light":"白亮",
+    "dark" :"深黑"
+  },
     "font": {
       "small": "最小号",
       "medium": "小号",
       "large": "中号",
       "extra": "最大号"
     },
-    "lang": "Language",
-    "preview": "Preview"
+     "lang":{
+      "langText" : "语言",
+      "cn": "中文",
+      "km" : "柬文",
+      "en" : "英文"
+    },
+    "preview": "预览",
+    "previewText" : "这个是显示测试字."
   }
 }

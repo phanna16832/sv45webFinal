@@ -1,12 +1,10 @@
 @import "tailwindcss";
-/* Example dark mode styles */
-html.dark {
-  background-color: #1a1a1a;
-  color: #ffffff;
-}
 
-/* Or if using Tailwind with dark mode class strategy */
-.dark body {
-  background-color: #1a1a1a;
-  color: #ffffff;
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
 }
