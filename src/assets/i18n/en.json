@@ -12,6 +12,18 @@
      "login":"Login",
     "register":"Sign Up"
   },
+  "cart":{
+    "placeOrder": "Place Order",
+    "cartText": "Cart"
+  },
+
+  "orders":{
+    "orderText": "Order History",
+    "empty":"No orders placed yet.",
+    "delete": "Delete",
+    "total":"Total"
+  },
+
   "notfound":{
     "button": "Go Back Home",
     "title": "Oops, the page you are looking for does not exist."

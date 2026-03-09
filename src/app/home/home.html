@@ -1,5 +1,17 @@
-<main>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
-  
-</div>
+<main class="p-6">
+  <ul class="grid grid-cols-2 md:grid-cols-3 gap-6">
+    @for (p of products$ | async; track p.id) {
+      <li class="border p-4 rounded-lg flex flex-col shadow-sm">
+        <img [src]="p.image" class="h-32 object-contain my-2">
+        <h4 class="font-bold text-sm h-12">{{p.title}}</h4>
+        <h5>{{p.price}}</h5>
+        <button 
+          (click)="buyItem(p)" 
+          class="bg-blue-600 text-white p-2 rounded mt-2 hover:bg-blue-700">
+          {{'addCart' | translate}}
+          <i class="fa-solid fa-cart-arrow-down"></i>
+        </button>
+      </li>
+    }
+  </ul>
 </main>

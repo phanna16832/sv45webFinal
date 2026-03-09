@@ -12,6 +12,17 @@
     "login": "登录",
     "register": "注册"
   },
+    "cart":{
+    "placeOrder": "下单",
+    "cartText": "购物车"
+  },
+
+  "orders":{
+    "orderText": "下单历史",
+    "empty":"目前尚未下单",
+    "delete": "删除",
+    "total":"总结"
+  },
   "notfound": {
     "button": "返回首页",
     "title": "Oops, 您正在寻找的页面不存在。"

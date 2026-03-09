@@ -1,27 +1,21 @@
-import { Component ,input} from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import {TranslateService} from '@ngx-translate/core';
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ApiService } from '../services/api-service';
 
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
-  @Component({
+@Component({
   selector: 'app-orders',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, TranslateModule],
   templateUrl: './orders.html',
   styleUrl: './orders.css',
 })
 export class Orders {
- constructor(
-    private title: Title,
-    private translate: TranslateService
-  ) {
-    this.setPageTitle();
-  }
 
-  private setPageTitle() {
-    this.translate.get('navitem.orders').subscribe((res) => {
-      this.title.setTitle(res);
-    });
-  }
+  constructor(private translate: TranslateService) {}
 
-  pageId = input.required<string>();
+  public api = inject(ApiService);
+
+  orders$ = this.api.orders$;
 }
