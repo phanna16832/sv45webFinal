@@ -35,6 +35,7 @@
     "resetpw": "忘记密码？"
   },
   "setting": {
+    "title":"设置",
     "fontSize": "字体",
     "quickSelect": "快选字体",
     "theme":"主题",

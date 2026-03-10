@@ -36,6 +36,7 @@
     "resetpw": "Reset Password"
   },
     "setting":{
+      "title":"Setting",
     "fontSize":"Font Size",
     "theme":"Theme",
      "font":{

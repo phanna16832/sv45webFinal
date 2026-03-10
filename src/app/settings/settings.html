@@ -6,9 +6,6 @@
       <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
         {{ 'setting.title' | translate }}
       </h1>
-      <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
-        {{ 'setting.subtitle' | translate }}
-      </p>
     </div>
 
     <!-- Settings Form Card -->
@@ -22,7 +19,6 @@
           </div>
           <div>
             <p class="text-sm font-medium text-gray-800 dark:text-white">{{'setting.theme' | translate}}</p>
-            <p class="text-xs text-gray-400">Light or Dark mode</p>
           </div>
         </div>
         <div class="flex gap-2">
@@ -55,7 +51,6 @@
             <p class="text-sm font-medium text-gray-800 dark:text-white">
               {{ 'setting.lang.langText' | translate }}
             </p>
-            <p class="text-xs text-gray-400">Choose your language</p>
           </div>
         </div>
         <select
@@ -148,6 +143,25 @@
     {{ 'setting.themeColor.' + settingService.theme() | translate }}
   </span>
 </div>
+<div class="flex justify-center">
+
+@if (auth.isLoggedIn()) {
+  <button 
+  (click)="logout()"
+  class="bg-red-500 text-white p-2 rounded-lg">
+  {{'logout' | translate}}
+</button>
+}
+@else {
+   <button
+      (click)="goToLogin()"
+      class="px-6 py-2.5 bg-lime-500 hover:bg-lime-600 text-white font-semibold rounded-lg transition">
+      Go to Login
+    </button>
+    }
+</div>
+
+
 
   </div>
 </div>

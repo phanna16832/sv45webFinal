@@ -5,13 +5,15 @@ import { Orders } from './orders/orders';
 import { Notfound } from './notfound/notfound';
 import { Login } from './login/login';
 import { Settings } from './settings/settings';
+import { authGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
-    {
-        path: '',
-        component: Home,
-        pathMatch: 'full' // Added to prevent partial matching issues
-    },
+  {
+  path: '',
+  canActivate: [authGuard],
+  loadComponent: () => import('./home/home').then(m => m.Home),
+  pathMatch: 'full'
+},
     {
         path: 'home',
         redirectTo: '',
@@ -33,10 +35,9 @@ export const routes: Routes = [
         component: Settings
     },
    
-     {
-        path: 'login',
-        component: Login
-    },
+       { path: 'login', loadComponent: () => import('./login/login').then(m => m.Login) },
+  { path: 'dashboard', canActivate: [authGuard], loadComponent: () => import('./home/home').then(m => m.Home) },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
     {
         path: '**', // Wildcard route for 404 handling
         component: Notfound

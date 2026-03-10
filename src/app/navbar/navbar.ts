@@ -24,7 +24,6 @@ export class Navbar {
     { label: 'navitem.cart', link: '/cart', icon:'fa-solid fa-cart-shopping' },
     { label: 'navitem.orders', link: '/orders', icon:'fa-solid fa-list' },
     { label: 'navitem.setting', link: '/setting', icon:'fa-solid fa-gear' },
-    { label: 'navitem.login', link: '/login', icon:'fa-solid fa-right-from-bracket' },
   ];
 
 

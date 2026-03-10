@@ -1,12 +1,57 @@
-<form action="" #form>
-  <label for="username">{{'account.username' | translate}}</label>
-  <input type="text" name="username" [(ngModel)]="username"><br><br>
+<div class="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4">
+  <div class="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
 
-  <label for="password">{{'account.password' | translate}}</label>
-  <input type="password" name="password"><br><br>
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">Welcome back</h1>
+    <p class="text-gray-500 dark:text-gray-400 mb-8 text-sm">Sign in to your account</p>
 
-  <button>
-    <i class="fa-solid fa-right-from-bracket"></i>
+    <!-- Error -->
+    @if (error()) {
+      <div class="mb-4 px-4 py-3 rounded-lg bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-sm">
+        {{ error() }}
+      </div>
+    }
+
+    <!-- Username -->
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{'account.username' | translate}}</label>
+      <input
+        [(ngModel)]="username"
+        type="text"
+        placeholder="{{'account.username' | translate}}"
+        class="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600
+               bg-white dark:bg-gray-700 text-gray-900 dark:text-white
+               focus:outline-none focus:ring-2 focus:ring-lime-500 transition"
+      />
+    </div>
+
+    <!-- Password -->
+    <div class="mb-6">
+      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{'account.password' | translate}}</label>
+      <input
+        [(ngModel)]="password"
+        type="password"
+        placeholder="{{'account.password' | translate}}"
+        class="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600
+               bg-white dark:bg-gray-700 text-gray-900 dark:text-white
+               focus:outline-none focus:ring-2 focus:ring-lime-500 transition"
+      />
+    </div>
+
+    <!-- Submit -->
+    <button
+      (click)="onSubmit()"
+      [disabled]="loading()"
+      class="w-full py-2.5 px-4 rounded-lg bg-lime-600 hover:bg-lime-700
+             text-white font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+
     {{'account.login' | translate}}
-  </button>
-</form>
+      {{ loading() ? '.....' : '' }}
+    </button>
+
+    <!-- Hint -->
+    <p class="mt-6 text-center text-sm text-lime-500 font-bold">
+      Test credentials: <span class="font-inter">mor_2314</span> / <span class="font-mono">83r5^_</span>
+    </p>
+  </div>
+</div>

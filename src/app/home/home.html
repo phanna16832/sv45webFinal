@@ -1,4 +1,4 @@
-<main class="p-6">
+<main class="p-6 dark:bg-gray-700">
   <ul class="grid grid-cols-2 md:grid-cols-3 gap-6">
     @for (p of products$ | async; track p.id) {
       <li class="border p-4 rounded-lg flex flex-col shadow-sm">
@@ -7,7 +7,7 @@
         <h5>{{p.price}}</h5>
         <button 
           (click)="buyItem(p)" 
-          class="bg-blue-600 text-white p-2 rounded mt-2 hover:bg-blue-700">
+          class="bg-green-600 text-white p-2 rounded mt-2 hover:bg-green-700">
           {{'addCart' | translate}}
           <i class="fa-solid fa-cart-arrow-down"></i>
         </button>

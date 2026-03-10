@@ -2,6 +2,9 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { SettingService, FontSize, Theme, Language } from '../services/setting-services/setting-service';
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
+import { Login } from '../login/login';
 
 @Component({
   selector: 'app-settings',
@@ -10,6 +13,7 @@ import { SettingService, FontSize, Theme, Language } from '../services/setting-s
 })
 export class Settings {
   settingService = inject(SettingService);
+  
 
   changeFontSize(size: FontSize): void {
     this.settingService.setFontSize(size);
@@ -31,4 +35,20 @@ export class Settings {
       this.settingService.setFontSize(value);
     }
   }
+
+
+     constructor(
+    public auth: AuthService,
+    private router: Router
+  ) {}
+
+   goToLogin() {
+    this.router.navigateByUrl('login');
+  }
+
+  logout() {
+    this.auth.logout();
+  }
+
+
 }

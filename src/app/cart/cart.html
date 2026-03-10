@@ -5,7 +5,7 @@
     @for (item of (api.cart$ | async); track item.id) {
       <div class="flex items-center justify-between border-b pb-4">
         <div class="flex items-center gap-4">
-          <input type="checkbox" [checked]="item.selected" (change)="api.toggleSelect(item.id)" class="w-5 h-5">
+          <input type="checkbox" [checked]="item.selected" (change)="api.toggleSelect(item.id)" class="w-5 h-5 border-lime-700 outline-lime-700 accent-lime-700">
           <img [src]="item.image" class="w-16 h-16 object-contain">
           <div>
             <p class="font-semibold">{{ item.title }}</p>

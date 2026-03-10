@@ -1,12 +1,12 @@
-<div class="p-4 sm:p-6 max-w-3xl mx-auto">
+<div class="p-4 sm:p-6 max-w-3xl mx-auto ">
     <h2 class="text-2xl font-bold mb-6">{{'orders.orderText' | translate}}</h2>
 
     @for (order of (api.orders$ | async); track order.orderId) {
-    <div class="mb-6 p-4 border rounded-lg bg-gray-50 shadow-sm">
+    <div class="mb-6 p-4 border rounded-lg bg-gray-50  dark:bg-gray-700 shadow-sm  ">
 
         <!-- Order Header -->
         <div class="flex flex-wrap justify-between items-center gap-2 font-bold border-b pb-2 mb-3">
-            <span class="text-base">#{{ order.orderId }}</span>
+            <span class="text-base dark:text-lime-700">#{{ order.orderId }}</span>
             <span class="text-green-600 text-base">{{'orders.total' | translate}}: ${{ order.total | number: '1.2-2' }}</span>
             <button (click)="api.deleteOrder(order.orderId)"
             class="bg-red-500 rounded-sm p-2 text-white font-semibold transition-shadow hover:bg-red-700">
@@ -20,7 +20,7 @@
         <div
             class="flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 text-sm py-2 border-b last:border-0">
             <!-- Title -->
-            <span class="w-full sm:w-auto flex-1 font-medium">
+            <span class="w-full sm:w-auto flex-1 font-medium hover:text-lime-700">
                 {{ item.title }} <span class="text-gray-500">(x{{ item.quantity }})</span>
             </span>
 
