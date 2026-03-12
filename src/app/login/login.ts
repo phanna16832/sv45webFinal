@@ -31,7 +31,7 @@ export class Login {
     this.auth.login({ username: this.username, password: this.password }).subscribe({
       next: () => {
         this.loading.set(false);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/']);
       },
       error: () => {
         this.loading.set(false);

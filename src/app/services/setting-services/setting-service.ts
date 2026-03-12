@@ -53,8 +53,7 @@ export class SettingService {
 
 private applyTheme(theme: Theme): void {
   document.documentElement.classList.toggle('dark', theme === 'dark');
-  // document.documentElement.style.colorScheme = theme; // ✅ syncs with your toggle
-}
+  }
   private applyFontSize(size: FontSize): void {
     const html = document.documentElement;
     html.classList.remove('text-sm', 'text-base', 'text-lg');

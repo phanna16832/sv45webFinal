@@ -11,11 +11,14 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   templateUrl: './orders.html',
   styleUrl: './orders.css',
 })
-export class Orders {
+  export class Orders {
+    public  api = inject(ApiService);
+    orders$ = this.api.orders$;
 
-  constructor(private translate: TranslateService) {}
+    
+    constructor(private translate: TranslateService) {}
 
-  public api = inject(ApiService);
+    
 
-  orders$ = this.api.orders$;
-}
+    
+  }

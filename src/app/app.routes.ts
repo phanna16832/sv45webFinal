@@ -9,42 +9,38 @@ import { authGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
   {
-  path: '',
-  canActivate: [authGuard],
-  loadComponent: () => import('./home/home').then(m => m.Home),
-  pathMatch: 'full'
-},
-    {
-        path: 'home',
-        redirectTo: '',
-        pathMatch: 'full'
-    },
-    {
-        path: 'cart',
-        component: Cart
-    },
-    {
-        path: 'orders',
-        component: Orders
-    },
-    {path: 'orders/:pageId',
-        component: Orders
-    },
-    {
-        path:'setting', 
-        component: Settings
-    },
-   
-       { path: 'login', loadComponent: () => import('./login/login').then(m => m.Login) },
-  { path: 'dashboard', canActivate: [authGuard], loadComponent: () => import('./home/home').then(m => m.Home) },
+    path: '',
+    canActivate: [authGuard],
+    loadComponent: () => import('./home/home').then((m) => m.Home),
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    redirectTo: '',
+    pathMatch: 'full',
+  },
+  {
+    path: 'cart',
+    component: Cart,
+  },
+  {
+    path: 'orders',
+    component: Orders,
+  },
+  {
+    path: 'setting',
+    component: Settings,
+  },
+
+  { path: 'login', loadComponent: () => import('./login/login').then((m) => m.Login) },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-    {
-        path: '**', // Wildcard route for 404 handling
-        component: Notfound
-    },
-   
-    {
-        path: '**/pageName',
-        component: Notfound
-    }
+  {
+    path: '**', // Wildcard route for 404 handling
+    component: Notfound,
+  },
+
+  {
+    path: '**/pageName',
+    component: Notfound,
+  },
 ];
