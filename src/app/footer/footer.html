@@ -1,23 +1,23 @@
-<footer class="bg-white border-t border-gray-200 py-10 px-4">
+<footer class="bg-white border-t dark:bg-gray-700 py-10 px-4">
   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
  <div>
-      <h5 class="font-bold uppercase mb-4 text-sm tracking-wider">Orders</h5>
+      <h5 class="font-bold uppercase mb-4 text-sm tracking-wider">{{'footer.order' | translate}}</h5>
       <ul class="space-y-3">
         <li>
-          <a routerLink="orders" class="flex items-center gap-3 text-gray-600 hover:text-lime-600 transition-colors text-sm">
+          <a routerLink="orders" class="flex items-center gap-3 text-gray-600 dark:text-white hover:text-lime-600 transition-colors text-sm">
             <i class="fa-solid fa-bag-shopping w-5"></i>
-            <span>My Orders</span>
+           {{'footer.myorder' | translate}}
           </a>
         </li>
       </ul>
     </div>
 
     <div>
-      <h5 class="font-bold uppercase mb-4 text-sm tracking-wider">{{'footer.social'}}</h5>
+      <h5 class="font-bold uppercase mb-4 text-sm tracking-wider">{{'footer.social' | translate}}</h5>
       <ul class="space-y-3">
         @for (i of icons; track $index) {
           <li>
-            <a href="#" class="flex items-center gap-3 text-gray-600 hover:text-lime-600 transition-colors text-sm">
+            <a href="#" class="flex items-center gap-3 text-gray-600 dark:text-white hover:text-lime-600 transition-colors text-sm">
               <i class="{{i}} w-5 flex justify-center text-base"></i>
               <span class="capitalize">{{i.split('-').pop()}}</span>
             </a>
@@ -27,13 +27,13 @@
     </div>
 
     <div>
-      <h5 class="font-bold uppercase mb-4 text-sm tracking-wider">Contact Us</h5>
+      <h5 class="font-bold uppercase mb-4 text-sm tracking-wider">{{'footer.contact' | translate}}</h5>
       <div class="flex flex-col space-y-3">
-        <a href="mailto:setec-sv45WdIII.co" class="flex items-center gap-3 text-gray-600 hover:text-.lime text-sm">
+        <a href="mailto:setec-sv45WdIII.co" class="flex items-center gap-3 text-gray-600 dark:text-white hover:text-.lime text-sm">
           <i class="fa-solid fa-envelope w-5 text-center"></i>
           <span>setec-sv45WdIII.co</span>
         </a>
-        <a href="#" class="flex items-center gap-3 text-gray-600 hover:text-lime-400 text-sm">
+        <a href="#" class="flex items-center gap-3 text-gray-600 dark:text-white hover:text-lime-400 text-sm">
           <i class="fa-brands fa-telegram w-5 text-center"></i>
           <span>Telegram</span>
         </a>

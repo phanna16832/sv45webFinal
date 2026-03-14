@@ -29,6 +29,8 @@
   },
   "account": {
     "username": "用户名",
+      "welcome":"欢迎您回来",
+    "text":"登录账号",
     "password": "密码",
     "register": "注册",
     "login": "登录",
@@ -57,5 +59,14 @@
     },
     "preview": "预览",
     "previewText" : "这个是显示测试字."
+  },
+
+  "footer": {
+    "p": "本网站是为了学习目的而创建的",
+    "social": "社交媒体",
+    "myorder":"我的订单",
+    "order": "订单",
+    "contact": "联系我们"
   }
+
 }

@@ -1,46 +1,50 @@
 import { Routes } from '@angular/router';
-import { Home } from './home/home';
+import { authGuard } from './auth/auth.guard';
 import { Cart } from './cart/cart';
 import { Orders } from './orders/orders';
-import { Notfound } from './notfound/notfound';
-import { Login } from './login/login';
 import { Settings } from './settings/settings';
-import { authGuard } from './auth/auth.guard';
+import { Notfound } from './notfound/notfound';
 
 export const routes: Routes = [
+  // 1. PUBLIC ROUTES (No Guard)
+  { 
+    path: 'login', 
+    loadComponent: () => import('./login/login').then((m) => m.Login) 
+  },
+  { 
+    path: 'setting', // Per your request: accessible without login
+    component: Settings 
+  },
+
+  // 2. PROTECTED ROUTES (Requires Login)
   {
     path: '',
     canActivate: [authGuard],
-    loadComponent: () => import('./home/home').then((m) => m.Home),
-    pathMatch: 'full',
-  },
-  {
-    path: 'home',
-    redirectTo: '',
-    pathMatch: 'full',
-  },
-  {
-    path: 'cart',
-    component: Cart,
-  },
-  {
-    path: 'orders',
-    component: Orders,
-  },
-  {
-    path: 'setting',
-    component: Settings,
-  },
-
-  { path: 'login', loadComponent: () => import('./login/login').then((m) => m.Login) },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  {
-    path: '**', // Wildcard route for 404 handling
-    component: Notfound,
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./home/home').then((m) => m.Home),
+        pathMatch: 'full',
+      },
+      {
+        path: 'home',
+        redirectTo: '',
+        pathMatch: 'full',
+      },
+      {
+        path: 'cart',
+        component: Cart,
+      },
+      {
+        path: 'orders',
+        component: Orders,
+      },
+    ]
   },
 
+  // 3. WILDCARD (404)
   {
-    path: '**/pageName',
+    path: '**',
     component: Notfound,
   },
 ];

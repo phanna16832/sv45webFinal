@@ -15,7 +15,9 @@
       <div class="p-5 flex items-center justify-between">
         <div class="flex items-center gap-3">
           <div class="w-9 h-9 rounded-lg bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center">
-            <span class="text-lg">🎨</span>
+            <span class="text-lg text-yellow-500">
+              <i class="fa-solid fa-circle-half-stroke"></i>
+            </span>
           </div>
           <div>
             <p class="text-sm font-medium text-gray-800 dark:text-white">{{'setting.theme' | translate}}</p>
@@ -28,7 +30,8 @@
               (settingService.theme() === 'light'
                 ? 'bg-lime-500 text-white border-lime-500 shadow-sm'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border-transparent hover:border-gray-300')">
-            ☀️ {{'setting.themeColor.light' | translate}}
+            <i class="fa-solid fa-sun text-yellow-500"></i>
+            {{'setting.themeColor.light' | translate}}
           </button>
           <button
             (click)="changeTheme('dark')"
@@ -36,7 +39,8 @@
               (settingService.theme() === 'dark'
                 ? 'bg-lime-500 text-white border-lime-500 shadow-sm'
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border-transparent hover:border-gray-300')">
-            🌙 {{'setting.themeColor.dark' | translate}}
+            <i class="fa-solid fa-moon text-yellow-300"></i>
+            {{'setting.themeColor.dark' | translate}}
           </button>
         </div>
       </div>
@@ -45,7 +49,9 @@
       <div class="p-5 flex items-center justify-between gap-4">
         <div class="flex items-center gap-3 shrink-0">
           <div class="w-9 h-9 rounded-lg bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
-            <span class="text-lg">🌐</span>
+            <span class="text-lg text-sky-500">
+              <i class="fa-solid fa-language"></i>
+            </span>
           </div>
           <div>
             <p class="text-sm font-medium text-gray-800 dark:text-white">
@@ -56,9 +62,9 @@
         <select
           (change)="changeLanguage($event)"
           class="text-sm px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-lime-400 w-36">
-          <option value="en" [selected]="settingService.language() === 'en'">🇺🇸 English</option>
-          <option value="km" [selected]="settingService.language() === 'km'">🇰🇭 ភាសាខ្មែរ</option>
-          <option value="cn" [selected]="settingService.language() === 'cn'">🇨🇳 中文</option>
+          <option value="en" [selected]="settingService.language() === 'en'"> English</option>
+          <option value="km" [selected]="settingService.language() === 'km'"> ភាសាខ្មែរ</option>
+          <option value="cn" [selected]="settingService.language() === 'cn'"> 中文</option>
         </select>
       </div>
 
@@ -66,7 +72,9 @@
       <div class="p-5">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-9 h-9 rounded-lg bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
-            <span class="text-lg">🔤</span>
+            <span class="text-lg text-purple-700">
+              <i class="fa-solid fa-font"></i>
+            </span>
           </div>
           <div>
             <p class="text-sm font-medium text-gray-800 dark:text-white">
@@ -108,10 +116,10 @@
         <select
           (change)="onQuickSelect($event)"
           class="w-full text-sm px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-lime-400">
-          <option value="" disabled [selected]="true">⚡ {{ 'setting.quickSelect' | translate }}</option>
-          <option value="small"  [selected]="settingService.fontSize() === 'small'">🔡 {{ 'setting.font.small' | translate }} — 14px</option>
-          <option value="medium" [selected]="settingService.fontSize() === 'medium'">🔤 {{ 'setting.font.medium' | translate }} — 16px</option>
-          <option value="large"  [selected]="settingService.fontSize() === 'large'">🔠 {{ 'setting.font.large' | translate }} — 18px</option>
+          <option value="" disabled [selected]="true"> {{ 'setting.quickSelect' | translate }}</option>
+          <option value="small"  [selected]="settingService.fontSize() === 'small'"> {{ 'setting.font.small' | translate }} — 14px</option>
+          <option value="medium" [selected]="settingService.fontSize() === 'medium'"> {{ 'setting.font.medium' | translate }} — 16px</option>
+          <option value="large"  [selected]="settingService.fontSize() === 'large'"> {{ 'setting.font.large' | translate }} — 18px</option>
         </select>
       </div>
 
@@ -120,7 +128,7 @@
     <!-- Preview Card -->
     <div class="mt-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-5">
       <div class="flex items-center gap-2 mb-3">
-        <span class="text-lg">👁️</span>
+        <i class="fa-solid fa-eye text-lime-400"></i>
         <h2 class="text-sm font-semibold text-gray-800 dark:text-white">
           {{ 'setting.preview' | translate }}
         </h2>
