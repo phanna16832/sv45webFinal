@@ -14,7 +14,7 @@
   },
     "cart":{
     "placeOrder": "下单",
-    "cartText": "购物车"
+    "cartText": "您的购物车"
   },
 
   "orders":{

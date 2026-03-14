@@ -14,7 +14,7 @@
   },
   "cart":{
     "placeOrder": "Place Order",
-    "cartText": "Cart"
+    "cartText": "Your Shopping Cart"
   },
 
   "orders":{

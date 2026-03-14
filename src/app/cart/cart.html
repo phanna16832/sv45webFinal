@@ -1,5 +1,5 @@
 <div class="p-6">
-  <h2 class="text-2xl font-bold mb-4">Your Shopping Cart</h2>
+  <h2 class="text-2xl font-bold mb-4">{{'cart.cartText' | translate}}</h2>
   
   <div class="space-y-4">
     @for (item of (api.cart$ | async); track item.id) {
@@ -25,6 +25,6 @@
   <button 
     (click)="api.placeOrder()" 
     class="mt-6 w-full bg-orange-500 text-white font-bold py-3 rounded-lg hover:bg-orange-600">
-    Place Order
+    {{'cart.placeOrder' | translate}}
   </button>
 </div>
