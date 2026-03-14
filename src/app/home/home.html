@@ -4,7 +4,7 @@
       <li class="border p-4 rounded-lg flex flex-col shadow-sm">
         <img [src]="p.image" class="h-32 object-contain my-2">
         <h4 class="font-bold text-sm h-12">{{p.title}}</h4>
-        <h5>{{p.price}}</h5>
+        <h5 class="font-medium text-md text-lime-500 text-center">{{p.price | currency}}</h5>
         <button 
           (click)="buyItem(p)" 
           class="bg-green-600 text-white p-2 rounded mt-2 hover:bg-green-700">

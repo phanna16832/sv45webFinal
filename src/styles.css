@@ -7,3 +7,7 @@
     @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white;
   }
 }
+
+.font-en {font-family: 'inter', cursive; }
+.font-km { font-family: 'Hanuman', serif; }
+.font-cn { font-family: 'Noto Sans SC', sans-serif; }
